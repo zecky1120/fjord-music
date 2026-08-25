@@ -9,5 +9,5 @@
   <div>キャプション: <%= video.caption %></div>
 <% end %>
 <div>動画名: <%= link_to "#{video.title}", "#{video.url}", target: "_blank", rel: "noopener noreferrer" %></div>
-<p><time>投稿日: <%= video.created_at.strftime('%Y/%m/%d') %></time></p>
+<p><time>投稿日: <%= video.created_at.strftime('%Y/%m/%d (%a)') %></time></p>
 <hr>
