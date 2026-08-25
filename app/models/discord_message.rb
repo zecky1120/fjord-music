@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'addressable/uri'
-require 'google/apis/youtube_v3'
-
 class DiscordMessage
   def call(event)
     @content = event.content
