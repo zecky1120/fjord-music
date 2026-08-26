@@ -32,7 +32,7 @@ class DiscordMessage
     if movie?
       with_v
     elsif playlist?
-      playlist
+      with_playlist
     else
       without_v
     end
@@ -46,7 +46,7 @@ class DiscordMessage
     parse_url.to_s.scan(/\w+/)[3]
   end
 
-  def playlist
+  def with_playlist
     parse_url.query_values['list']
   end
 
