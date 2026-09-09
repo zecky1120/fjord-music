@@ -17,7 +17,8 @@ class DiscordMessage
   private
 
   def caption
-    @content.gsub(URI::DEFAULT_PARSER.make_regexp, '').strip.presence
+    only_caption = @content.gsub(URI::DEFAULT_PARSER.make_regexp, '')
+    only_caption.gsub(/(^[[:space:]]+)|([[:space:]]+$)/, '')
   end
 
   def url
