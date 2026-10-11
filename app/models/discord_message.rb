@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'addressable/uri'
-require 'google/apis/youtube_v3'
-
 class DiscordMessage
   def call(event)
     @content = event.content
@@ -20,7 +17,8 @@ class DiscordMessage
   private
 
   def caption
-    @content.gsub(URI::DEFAULT_PARSER.make_regexp, '').strip.presence
+    only_caption = @content.gsub(URI::DEFAULT_PARSER.make_regexp, '')
+    only_caption.gsub(/(^[[:space:]]+)|([[:space:]]+$)/, '')
   end
 
   def url
@@ -35,7 +33,7 @@ class DiscordMessage
     if movie?
       with_v
     elsif playlist?
-      playlist
+      with_playlist
     else
       without_v
     end
@@ -49,7 +47,7 @@ class DiscordMessage
     parse_url.to_s.scan(/\w+/)[3]
   end
 
-  def playlist
+  def with_playlist
     parse_url.query_values['list']
   end
 

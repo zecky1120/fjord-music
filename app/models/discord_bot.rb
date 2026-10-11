@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'discordrb'
-
 class DiscordBot
   def initialize
     @bot = Discordrb::Bot.new(
