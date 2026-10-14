@@ -1,15 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  profile: MyString
-  avator_url: MyString
-  uid: MyString
-  provider: MyString
+alice:
+  name: alice
+  avatar_url: https://www.gravatar.com/avatar/0ce273d3249291c620af81403b14b3c1
+  uid: alicealice
+  provider: discord
 
-two:
-  name: MyString
-  profile: MyString
-  avator_url: MyString
-  uid: MyString
-  provider: MyString
+bob:
+  name: bob
+  avatar_url: https://www.gravatar.com/avatar/0ca52abaa9fce14c44a351fccd1b9fc5
+  uid: bob
+  provider: discord

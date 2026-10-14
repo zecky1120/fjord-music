@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  title: MyText
-  caption: MyText
-  youtube_id: MyString
-  discord_message_id: MyString
-  discord_channel_id: MyString
+video_1:
+  user: alice
+  title: aliceが投稿した動画
+  caption: nil
+  thumbnail: xitjTTxwh1.jpg
+  discord_message_id: 1xwNipdD6g
+  discord_channel_id: 82SQGkkU5B
 
-two:
-  user: two
-  title: MyText
-  caption: MyText
-  youtube_id: MyString
-  discord_message_id: MyString
-  discord_channel_id: MyString
+video_2:
+  user: bob
+  title: bobが投稿した動画
+  caption: Hello!
+  thumbnail: RmH0GxPVrN.jpg
+  discord_message_id: tfmuUVrTib
+  discord_channel_id: slY4q0IJ7Q
