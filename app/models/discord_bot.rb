@@ -10,6 +10,7 @@ class DiscordBot
   end
 
   def run
+    member_update
     message
     @bot.run
   end
@@ -29,6 +30,20 @@ class DiscordBot
       not_logged_in(event)
       discord_message = DiscordMessage.new.call(event)
       Video.create_video_info(discord_message)
+    end
+  end
+
+  def member_update
+    @bot.member_update do |event|
+      uid = event.user.id.to_s
+      update_member = JSON.parse(Discordrb::API::User.resolve(@bot.token, uid))
+      update_username = update_member['username']
+      update_avatar = chenged_avatar_url(uid, update_member['avatar'])
+      user = User.find_by(uid: uid)
+      if user
+        user.update!(name: update_username) if user.name != update_username
+        user.update!(avatar_url: update_avatar) if user.avatar_url != update_avatar
+      end
     end
   end
 
