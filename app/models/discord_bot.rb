@@ -10,6 +10,7 @@ class DiscordBot
   end
 
   def run
+    member_leave
     member_update
     message
     @bot.run
@@ -19,7 +20,7 @@ class DiscordBot
 
   def not_logged_in(event)
     user = User.find_by(uid: event.message.author.id)
-    url = 'http://localhost:3000'
+    url = 'http://127.0.0.1:3000'
     if user.nil?
       event.respond "初めまして！👋初めての投稿ですね！\nまずは[ログイン](#{url})からお願いします!"
     end
@@ -30,6 +31,14 @@ class DiscordBot
       not_logged_in(event)
       discord_message = DiscordMessage.new.call(event)
       Video.create_video_info(discord_message)
+    end
+  end
+
+  def member_leave
+    @bot.member_leave do |event|
+      user_id = event.user.id
+      user = User.find_by(uid: user_id)
+      user&.destroy
     end
   end
 
