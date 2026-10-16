@@ -15,6 +15,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_110153) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.string "name"
+    t.string "nickname"
     t.string "provider"
     t.string "uid"
     t.datetime "updated_at", null: false

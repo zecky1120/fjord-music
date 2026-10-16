@@ -35,9 +35,8 @@
       <% else %>
         画像はないときの処理を書く（後ほど）
       <% end %>
-      <%= current_user.name %>
+      <%= link_to "#{user_name(current_user)}", user_path(current_user) %> |
       <%= link_to "ログアウト", logout_path %>
-      <%= link_to "ユーザー詳細", user_path(current_user) %>
     <% else %>
       ゲストさん
       <%= button_to "discordでログイン", "/auth/discord", method: :post, data: { turbo: false } %>
