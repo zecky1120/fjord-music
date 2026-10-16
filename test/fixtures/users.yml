@@ -2,12 +2,14 @@
 
 alice:
   name: alice
-  avatar_url: https://www.gravatar.com/avatar/0ce273d3249291c620af81403b14b3c1
-  uid: alicealice
+  nickname: アリス
+  avatar_url: https://cdn.discordapp.com/embed/avatars/0.png
+  uid: 8738834471430200320
   provider: discord
 
 bob:
   name: bob
-  avatar_url: https://www.gravatar.com/avatar/0ca52abaa9fce14c44a351fccd1b9fc5
-  uid: bob
+  nickname: ボブ
+  avatar_url: https://cdn.discordapp.com/embed/avatars/1.png
+  uid: 7871501011870600192
   provider: discord

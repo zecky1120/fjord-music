@@ -2,16 +2,18 @@
 
 video_1:
   user: alice
-  title: aliceが投稿した動画
-  caption: nil
-  thumbnail: xitjTTxwh1.jpg
-  discord_message_id: 1xwNipdD6g
-  discord_channel_id: 82SQGkkU5B
+  url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  title: "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)"
+  caption: ""
+  thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg"
+  discord_message_id: 7088156194126399488
+  discord_channel_id: 4310260294358499840
 
 video_2:
   user: bob
-  title: bobが投稿した動画
+  url: "https://youtube.com/watch?v=CaCSuzR4DwM"
+  title: "Louis Armstrong - What A Wonderful World (At The BBC)"
   caption: Hello!
-  thumbnail: RmH0GxPVrN.jpg
-  discord_message_id: tfmuUVrTib
-  discord_channel_id: slY4q0IJ7Q
+  thumbnail: "https://img.youtube.com/vi/CaCSuzR4DwM/mqdefault.jpg"
+  discord_message_id: 9026656444567300096
+  discord_channel_id: 4310260294358499840
