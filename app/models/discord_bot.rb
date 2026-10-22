@@ -21,15 +21,24 @@ class DiscordBot
   def not_logged_in(event)
     user = User.find_by(uid: event.message.author.id)
     url = 'http://127.0.0.1:3000'
-    if user.nil?
-      event.respond "初めまして！👋初めての投稿ですね！\nまずは[ログイン](#{url})からお願いします!"
-    end
+    return if user.present?
+
+    event.respond("#{event.author.mention}\n初めまして!　👋初めての投稿ですね！\nまずは[ログイン](#{url})からお願いします!")
+  end
+
+  def except_youtube(event)
+    return if YoutubeUrl.valid?(event.content)
+
+    event.respond("#{event.author.mention}\n無効のURLです😓　YoutubeまたはYoutube MusicのURLを入力してください👍")
   end
 
   def message
     @bot.message do |event|
       not_logged_in(event)
+      except_youtube(event)
       discord_message = DiscordMessage.new.call(event)
+      next unless discord_message
+
       Video.create_video_info(discord_message)
     end
   end
