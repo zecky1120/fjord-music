@@ -20,26 +20,41 @@ class DiscordBot
 
   def not_logged_in(event)
     user = User.find_by(uid: event.message.author.id)
-    url = 'http://127.0.0.1:3000'
-    return if user.present?
+    return if user
 
+    url = 'http://127.0.0.1:3000'
     event.respond("#{event.author.mention}\n初めまして!　👋初めての投稿ですね！\nまずは[ログイン](#{url})からお願いします!")
   end
 
-  def except_youtube(event)
-    return if YoutubeUrl.valid?(event.content)
+  # def except_youtube(event)
+  #   return if YoutubeUrl.valid?(event.content)
 
-    event.respond("#{event.author.mention}\n無効のURLです😓　YoutubeまたはYoutube MusicのURLを入力してください👍")
-  end
+  #   event.respond("#{event.author.mention}\n無効のURLです😓　YoutubeまたはYoutube MusicのURLを入力してください👍")
+  # end
+
+  # def only_caption(event)
+  #   discord_message = DiscordMessage.new
+  #   return unless discord_message.only_caption?(event)
+
+  #   event.respond("#{event.author.mention}\nYoutubeのURLも投稿してください")
+  # end
 
   def message
     @bot.message do |event|
       not_logged_in(event)
-      except_youtube(event)
-      discord_message = DiscordMessage.new.call(event)
-      next unless discord_message
 
-      Video.create_video_info(discord_message)
+      discord_message = DiscordMessage.new(event)
+
+      if discord_message.only_caption?
+        event.respond("#{event.author.mention}\nYoutubeのURLも投稿してください")
+      elsif discord_message.except_youtube?
+        event.respond("#{event.author.mention}\n無効のURLです😓　YoutubeまたはYoutube MusicのURLを入力してください👍")
+      end
+
+      video_info = discord_message.call
+      next unless video_info
+
+      Video.create_video_info(video_info)
     end
   end
 

@@ -1,26 +1,38 @@
 # frozen_string_literal: true
 
 class DiscordMessage
-  def call(event)
+  def initialize(event)
+    @event = event
     @content = event.content
+  end
+
+  def call
     return unless YoutubeUrl.valid?(parse_url)
 
     {
       caption: caption,
-      discord_message_id: event.message.id,
-      discord_channel_id: event.channel.id,
+      discord_message_id: @event.message.id,
+      discord_channel_id: @event.channel.id,
       title: title,
       url: parse_url,
       thumbnail: thumbnail,
-      user_id: event.message.author.id
+      user_id: @event.message.author.id
     }
+  end
+
+  def only_caption?
+    caption.present? && parse_url.empty?
+  end
+
+  def except_youtube?
+    parse_url.present? && !YoutubeUrl.valid?(parse_url)
   end
 
   private
 
   def caption
-    only_caption = @content.gsub(URI::DEFAULT_PARSER.make_regexp, '')
-    only_caption.gsub(/(^[[:space:]]+)|([[:space:]]+$)/, '')
+    parse_caption = @content.gsub(URI::DEFAULT_PARSER.make_regexp, '')
+    parse_caption.gsub(/(^[[:space:]]+)|([[:space:]]+$)/, '')
   end
 
   def parse_url
