@@ -26,19 +26,6 @@ class DiscordBot
     event.respond("#{event.author.mention}\n初めまして!　👋初めての投稿ですね！\nまずは[ログイン](#{url})からお願いします!")
   end
 
-  # def except_youtube(event)
-  #   return if YoutubeUrl.valid?(event.content)
-
-  #   event.respond("#{event.author.mention}\n無効のURLです😓　YoutubeまたはYoutube MusicのURLを入力してください👍")
-  # end
-
-  # def only_caption(event)
-  #   discord_message = DiscordMessage.new
-  #   return unless discord_message.only_caption?(event)
-
-  #   event.respond("#{event.author.mention}\nYoutubeのURLも投稿してください")
-  # end
-
   def message
     @bot.message do |event|
       not_logged_in(event)

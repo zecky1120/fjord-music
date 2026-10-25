@@ -1,0 +1,27 @@
+alice:
+  name: alice
+  nickname: アリス
+  avatar_url: https://cdn.discordapp.com/embed/avatars/0.png
+  uid: 8738834471430200320
+  provider: discord
+
+bob:
+  name: bob
+  nickname: ボブ
+  avatar_url: https://cdn.discordapp.com/embed/avatars/1.png
+  uid: 7871501011870600192
+  provider: discord
+
+charlie:
+  name: charlie
+  nickname: charlie
+  avatar_url: https://cdn.discordapp.com/embed/avatars/2.png
+  uid: 1965238566589415587
+  provider: discord
+
+dave:
+  name: dave
+  nickname: daveさん
+  avatar_url: https://cdn.discordapp.com/embed/avatars/3.png
+  uid: 6598896523145565552
+  provider: discord
