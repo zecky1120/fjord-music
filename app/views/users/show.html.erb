@@ -1,4 +1,4 @@
-<h1><%= user_name(@user) %></h1>
+<h1><%= image_tag @user.avatar_url, :size => '60x60', alt: "#{user_name(@user)}" %><%= user_name(@user) %></h1>
 
 ここに自分が投稿した音楽が表示されていく
 <% if @videos.present? %>
