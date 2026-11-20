@@ -42,6 +42,9 @@ Layout/CommentIndentation:
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
+Layout/HashAlignment:
+  Enabled: false
+
 # https://rubocop.readthedocs.io/en/stable/cops_layout/#layoutspacearoundmethodcalloperator
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true

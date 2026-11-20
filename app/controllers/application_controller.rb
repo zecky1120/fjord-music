@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   stale_when_importmap_changes
 
   include SessionsHelper
+  include PagesHelper
+
   before_action :check_logged_in
 
   def check_logged_in

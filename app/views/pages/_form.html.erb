@@ -1,0 +1,32 @@
+<div class="mb-3" data-controller="markdown">
+
+<label class="ms-2">
+  <input type="checkbox"
+    data-markdown-target="previewSwitch" data-action="markdown#togglePreview">
+  Preview
+</label>
+
+<%= form_with model: page do |f| %>
+  <%= render 'errors', object: f.object %>
+  <div>
+    <%= f.label :title, 'ページタイトル' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :slug, 'URLスラッグ（例: about）' %>
+    <%= f.text_field :slug %>
+  </div>
+
+  <div>
+    <%= f.label :content, '本文' %>
+    <%= f.text_area :content, rows: 10, data: { markdown_target: "editor" } %>
+  </div>
+
+  <div data-markdown-target="preview" class="hidden"></div>
+
+  <div>
+    <%= f.submit '保存する' %>
+  </div>
+<% end %>
+</div>

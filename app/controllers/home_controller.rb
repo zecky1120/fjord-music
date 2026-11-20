@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   skip_before_action :check_logged_in, only: :index
 
   def index
-    @videos = Video.all.order(created_at: :desc)
+    @videos = Video.includes(:user).order(created_at: :desc)
   end
 end

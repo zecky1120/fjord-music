@@ -1,5 +1,29 @@
 ---
 ja:
+  activerecord:
+    models:
+      page: 'ページ'
+    attributes:
+      page:
+        title: 'タイトル'
+        slug: 'スラッグ'
+        content: '本文'
+    errors:
+      models:
+        page:
+          attributes:
+            title:
+              format: '%{message}'
+              blank: '%{attribute}は必須入力です'
+              taken: '%{attribute}が重複しています'
+            slug:
+              format: '%{message}'
+              blank: '%{attribute}は必須入力です'
+              taken: '%{attribute}が重複しています'
+              invalid: '%{attribute}は半角英数字、ハイフン、アンダーバーのみが使用できます'
+            content:
+              format: '%{message}'
+              blank: '%{attribute}は必須入力です'
   date:
     abbr_day_names:
     - 日

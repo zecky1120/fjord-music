@@ -20,6 +20,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_083857) do
     t.string "slug"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["title"], name: "index_pages_on_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|

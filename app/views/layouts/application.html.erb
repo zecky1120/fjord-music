@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Fjord Music Tracks" %></title>
+    <title><%= content_for(:title) || "Fjord Music" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Fjord Music Tracks">
+    <meta name="application-name" content="Fjord Music">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,9 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -33,6 +35,10 @@
       <%= image_tag current_user.avatar_url, :size => '60x60', alt: "#{user_name(current_user)}" %>
       <%= link_to "#{user_name(current_user)}", user_path(current_user) %> |
       <%= link_to "ログアウト", logout_path %>
+      <% if current_user.admin? %>
+        <%= link_to "ページ作成", new_page_path %>
+      <% end %>
+      <%= render 'layouts/menu' %>
     <% else %>
       ゲストさん
       <%= button_to "discordでログイン", "/auth/discord", method: :post, data: { turbo: false } %>
