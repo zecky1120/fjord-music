@@ -4,7 +4,8 @@
   </figure>
 <% else %>
 <% end %>
-<div>ユーザーネーム: <%= link_to "#{user_name(video.user)}", user_path(video.user) %></div>
+<div>ユーザーネーム: <%= link_to "#{user_name(video.user)}", user_path(video.user) %>
+<%= user_avatar(video.user, size: '30x30') %></div>
 <% if video.caption.present? %>
   <div>キャプション: <%= video.caption %></div>
 <% end %>

@@ -11,6 +11,8 @@ bob:
   avatar_url: https://cdn.discordapp.com/embed/avatars/1.png
   uid: 7871501011870600192
   provider: discord
+  owner: false
+  admin: false
 
 charlie:
   name: charlie
@@ -18,6 +20,8 @@ charlie:
   avatar_url: https://cdn.discordapp.com/embed/avatars/2.png
   uid: 1965238566589415587
   provider: discord
+  owner: false
+  admin: false
 
 dave:
   name: dave
@@ -25,3 +29,5 @@ dave:
   avatar_url: https://cdn.discordapp.com/embed/avatars/3.png
   uid: 6598896523145565552
   provider: discord
+  owner: false
+  admin: false

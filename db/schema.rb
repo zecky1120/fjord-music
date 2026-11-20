@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_20_110153) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_31_083857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "pages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "slug"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["title"], name: "index_pages_on_title", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false, null: false
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.string "name"
     t.string "nickname"
+    t.boolean "owner", default: false, null: false
     t.string "provider"
     t.string "uid"
     t.datetime "updated_at", null: false
